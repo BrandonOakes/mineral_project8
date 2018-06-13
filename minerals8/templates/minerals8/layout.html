@@ -41,8 +41,10 @@
   </section>
  </div>
        {% for letter in alphabet %}
-           {% ifchanged mineral.name.0 %}<h1>{{mineral.name.0}}</h1>{% endifchanged%}
+           {% ifchanged letter.name.0 %}<span><a href="{% url 'alphabet' letter=letter.name.0 %}">{{letter.name.0}}</a></span>{% endifchanged%}
        {% endfor %}
+ <div>
+
   {% block content %}
   {% endblock %}
   <div class="minerals__random">

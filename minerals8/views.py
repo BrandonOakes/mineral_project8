@@ -9,7 +9,7 @@ def mineral_list(request):
     """renders template to list html from browser response"""
     minerals = Mineral.objects.all()
     alphabet = Mineral.objects.all().order_by('name')
-    return render(request, 'minerals8/list.html', {'minerals':minerals})
+    return render(request, 'minerals8/list.html', {'minerals':minerals, 'alphabet': alphabet})
 
 def mineral_detail(request, pk):
     """renders template to list html from browser response"""
@@ -19,4 +19,16 @@ def mineral_detail(request, pk):
 def mineral_search(request):
     term = request.GET.get('q')
     minerals = Mineral.objects.filter(name__icontains=term)
+    return render(request, 'minerals8/list.html', {'minerals':minerals})
+
+def alphabet_list(request, letter):
+    """renders template to list html from browser response"""
+    minerals = Mineral.objects.filter(name__istartswith=letter)
+    alphabet = Mineral.objects.all().order_by('name')
+    return render(request, 'minerals8/list.html', {'minerals':minerals, 'alphabet': alphabet})
+
+def category_list(request, category):
+    """renders template to list html from browser response"""
+    minerals = Mineral.objects.filter(category__icontains=category)
+    alphabet = Mineral.objects.all().order_by('name')
     return render(request, 'minerals8/list.html', {'minerals':minerals})
