@@ -1,0 +1,45 @@
+{% extends "minerals8/layout.html" %}
+
+{% block content %}
+  <style>
+    .practice:after {
+      content: '';
+      display:  table;
+      clear: both;
+    }
+    .column {
+      float: left;
+      width: 33.33%;
+      margin: auto;
+    }
+    .column.side {
+      width: 25%;
+    }
+    .column.middle {
+      width: 50%;
+    }
+    .mineral_anch{
+      text-align: center;
+    }
+    .changewidth {
+      width: 30%;
+      margin-bottom: 40px;
+      font-size: 1.2em;
+      font-family: "Work Sans", sans-serif;
+      font-weight: 500;
+    }
+
+  </style>
+  {% for letter in alphabet %}
+      {% ifchanged mineral.name.0 %}<h1>{{mineral.name.0}}</h1>{% endifchanged%}
+  {% endfor %}
+      <div class="container">
+       <div class="row">
+          <ul class="minerals__container jumbotron">
+           <div class="col-lg-4">
+            {% for mineral in minerals %}<li class="changewidth"><a  href="{% url 'detail' pk=mineral.pk %}"> {{ mineral }} </a></li>{% endfor %}
+          </div>
+          </ul>
+       </div>
+     </div>
+{% endblock %}

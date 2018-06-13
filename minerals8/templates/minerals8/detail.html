@@ -1,0 +1,53 @@
+{% extends "minerals8/layout.html" %}
+{% load static %}
+
+
+{% block content %}
+<h1 class="logo__name text-centered">{{mineral.name}}</h1>
+</a>
+<p class="logo__text text-centered">They're not rocks!</p>
+</div>
+<div class="grid-100 mineral__container">
+<h1 class="mineral__name">{{mineral.name}}</h1>
+<div class="mineral__image-bg">
+<img class="mineral__image" src="{% static 'minerals8/images/' %}{{mineral.name}}.jpg" alt="mineral image">
+<p class="mineral__caption">{{mineral.image_caption}}</p>
+</div>
+<div class="mineral__table-container">
+<table class="mineral__table">
+  <tr>
+    <td class="mineral__category">Category</td>
+    <td>{{mineral.category}}</td>
+  </tr>
+  <tr>
+    <td class="mineral__category">Mohs Scale Hardness</td>
+    <td class="mineral__formula">{{mineral.mohs_scale_hardness}}</td>
+  </tr>
+  <tr>
+    <td class="mineral__category">Strunz Classification</td>
+    <td>09.DB.45</td>
+  </tr>
+  <tr>
+    <td class="mineral__category">Unit Cell</td>
+    <td>a = 14.690(15) Å, b = 16.872(15) Å, c = 5.170(15) Å, Z = 2</td>
+  </tr>
+  <tr>
+    <td class="mineral__category">Color</td>
+    <td>Blue to blue-green</td>
+  </tr>
+  <tr>
+    <td class="mineral__category">Crystal Habit</td>
+    <td>fibrous</td>
+  </tr>
+  <tr>
+    <td class="mineral__category">Formula</td>
+    <td>{{mineral.formula}}</td>
+  </tr>
+</table>
+</div>
+</div>
+</div>
+<div class="minerals__random">
+<a class="minerals__anchor" href="#">Show random mineral</a>
+</div>
+{% endblock %}
