@@ -7,7 +7,7 @@ from .views import mineral_list, mineral_detail
 # Create your tests here.
 
 class MineralTest(TestCase):
-""" test mineral app"""
+    """ test mineral app"""
     def setUp(self):
         self.test_min = Mineral.objects.create(
             name="thisisfake",
@@ -16,7 +16,7 @@ class MineralTest(TestCase):
 
     def test_view_detail(self):
         resp = self.client.get(reverse('detail', args=[self.test_min.pk]))
-        self.assertTemplateUsed('minerals/detail.html')
+        self.assertTemplateUsed('minerals8/detail.html')
 
     def create_mineral(self, name="fake"):
         return Mineral.objects.create(name=name)
@@ -29,9 +29,12 @@ class MineralTest(TestCase):
     def test_view_list(self):
         min = self.create_mineral()
         resp = self.client.get(reverse('list'))
-        self.assertTemplateUsed('minerals/list.html')
+        self.assertTemplateUsed('minerals8/list.html')
 
     def test_database(self):
         min = self.create_mineral()
         data = Mineral.objects.count()
         self.assertEqual(data, 876 )
+    def test_category_search(self):
+        mineral_category = Mineral.objects.filter('category')
+        self.assertIn('Silicates', mineral_category)

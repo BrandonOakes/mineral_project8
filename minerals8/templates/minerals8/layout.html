@@ -14,6 +14,20 @@
   <link href='https://fonts.googleapis.com/css?family=Cousine' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="{% static 'minerals8/style.css' %}">
   {% block static %}{% endblock %}
+  <style media="screen">
+    .alpha_align {
+      padding-left: 35px;
+      font-size: 1.2em;
+    }
+    .group {
+      width: 10%;
+    }
+    .filter {
+      font-size: 1.2em;
+      font-color: black;
+    }
+  </style>
+
 </head>
 <body>
   <div class="container">
@@ -41,9 +55,29 @@
   </section>
  </div>
        {% for letter in alphabet %}
-           {% ifchanged letter.name.0 %}<span><a href="{% url 'alphabet' letter=letter.name.0 %}">{{letter.name.0}}</a></span>{% endifchanged%}
+           {% ifchanged letter.name.0 %}
+            <!-- <div class='alpha_align'> -->
+            <span class='alpha_align'><a  href="{% url 'alphabet' letter=letter.name.0 %}">{{letter.name.0}}</a></span>
+           <!-- </div> -->
+          {% endifchanged%}
        {% endfor %}
- <div>
+       <ul class='group'>
+            <span class='filter'> Filter by Mineral Group</span>
+            <li></li><a href="{% url 'categories' group='Oxides' %}">Oxides</a></li>
+            <li></li><a href="{% url 'categories' group='Sulfates'%}">Sulfates</a></li>
+            <li></li><a href="{% url 'categories' group='Sulfides'%}">Sulfides</a></li>
+            <li></li><a href="{% url 'categories' group='Carbonates'%}">Carbonates</a></li>
+            <li></li><a href="{% url 'categories' group='Halides' %}">Halides</a></li>
+            <li></li><a href="{% url 'categories' group='Sulfosalts'%}">Sulfosalts</a></li>
+            <li></li><a href="{% url 'categories' group='Phosphates'%}">Phosphates</a></li>
+            <li></li><a href="{% url 'categories' group='Borates'%}">Borates</a></li>
+            <li></li><a href="{% url 'categories' group='Arsenates'%}">Arsenates</a></li>
+            <li></li><a href="{% url 'categories' group='Native elements'%}">Native Elements</a></li>
+            <li></li><a href="{% url 'categories' group='Arsenates'%}">Arsenates</a></li>
+            <li></li><a href="{% url 'categories' group='Organic'%}">Organic</a></li>
+            <li></li><a href="{% url 'categories' group='Other'%}">Other</a></li>
+        </ul>
+
 
   {% block content %}
   {% endblock %}

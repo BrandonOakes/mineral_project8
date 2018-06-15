@@ -28,11 +28,17 @@
       font-family: "Work Sans", sans-serif;
       font-weight: 500;
     }
+    .position {
+      float: right;
+      margin-left: 30px;
+      position: absolute;
+      margin-top: -700px;
+    }
 
   </style>
       <div class="container">
        <div class="row">
-          <ul class="minerals__container jumbotron">
+          <ul class="minerals__container jumbotron position">
            <div class="col-lg-4">
             {% for mineral in minerals %}<li class="changewidth"><a  href="{% url 'detail' pk=mineral.pk %}"> {{ mineral }} </a></li>{% endfor %}
           </div>

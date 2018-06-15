@@ -8,5 +8,5 @@ urlpatterns = [
     path('detail/<int:pk>', views.mineral_detail, name = 'detail'),
     path('search/', views.mineral_search, name='search'),
     path('alphabet/<letter>', views.alphabet_list, name='alphabet'),
-    path('categories/<category>', views.category_list, name='categories')
+    path('categories/<group>', views.category_list, name='categories')
 ]

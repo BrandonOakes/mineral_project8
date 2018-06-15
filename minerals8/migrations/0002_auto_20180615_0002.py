@@ -31,7 +31,9 @@ def add_minerals(apps, schema_editor):
             optical_properties = da.get('optical_properties', default),
             refractive_index = da.get('refractive index', default),
             crystal_habit = da.get('crystal habit', default),
-            specific_gravity =  da.get('specific gravity', default)
+            specific_gravity =  da.get('specific gravity', default),
+            group = da['group']
+
             )
 
 

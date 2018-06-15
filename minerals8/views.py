@@ -19,7 +19,8 @@ def mineral_detail(request, pk):
 def mineral_search(request):
     term = request.GET.get('q')
     minerals = Mineral.objects.filter(name__icontains=term)
-    return render(request, 'minerals8/list.html', {'minerals':minerals})
+    alphabet = Mineral.objects.all().order_by('name')
+    return render(request, 'minerals8/list.html', {'minerals':minerals, 'alphabet': alphabet})
 
 def alphabet_list(request, letter):
     """renders template to list html from browser response"""
@@ -27,8 +28,8 @@ def alphabet_list(request, letter):
     alphabet = Mineral.objects.all().order_by('name')
     return render(request, 'minerals8/list.html', {'minerals':minerals, 'alphabet': alphabet})
 
-def category_list(request, category):
+def category_list(request, group):
     """renders template to list html from browser response"""
-    minerals = Mineral.objects.filter(category__icontains=category)
+    minerals = Mineral.objects.filter(group__icontains=group)
     alphabet = Mineral.objects.all().order_by('name')
-    return render(request, 'minerals8/list.html', {'minerals':minerals})
+    return render(request, 'minerals8/list.html', {'minerals':minerals, 'alphabet': alphabet})
