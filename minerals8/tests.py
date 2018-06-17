@@ -35,6 +35,3 @@ class MineralTest(TestCase):
         min = self.create_mineral()
         data = Mineral.objects.count()
         self.assertEqual(data, 876 )
-    def test_category_search(self):
-        mineral_category = Mineral.objects.filter('category')
-        self.assertIn('Silicates', mineral_category)

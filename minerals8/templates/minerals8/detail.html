@@ -3,51 +3,97 @@
 
 
 {% block content %}
-<h1 class="logo__name text-centered">{{mineral.name}}</h1>
-</a>
-<p class="logo__text text-centered">They're not rocks!</p>
-</div>
-<div class="grid-100 mineral__container">
-<h1 class="mineral__name">{{mineral.name}}</h1>
-<div class="mineral__image-bg">
-<img class="mineral__image" src="{% static 'minerals8/images/' %}{{mineral.name}}.jpg" alt="mineral image">
-<p class="mineral__caption">{{mineral.image_caption}}</p>
-</div>
-<div class="mineral__table-container">
-<table class="mineral__table">
-  <tr>
-    <td class="mineral__category">Category</td>
-    <td>{{mineral.category}}</td>
-  </tr>
-  <tr>
-    <td class="mineral__category">Mohs Scale Hardness</td>
-    <td class="mineral__formula">{{mineral.mohs_scale_hardness}}</td>
-  </tr>
-  <tr>
-    <td class="mineral__category">Strunz Classification</td>
-    <td>09.DB.45</td>
-  </tr>
-  <tr>
-    <td class="mineral__category">Unit Cell</td>
-    <td>a = 14.690(15) Å, b = 16.872(15) Å, c = 5.170(15) Å, Z = 2</td>
-  </tr>
-  <tr>
-    <td class="mineral__category">Color</td>
-    <td>Blue to blue-green</td>
-  </tr>
-  <tr>
-    <td class="mineral__category">Crystal Habit</td>
-    <td>fibrous</td>
-  </tr>
-  <tr>
-    <td class="mineral__category">Formula</td>
-    <td>{{mineral.formula}}</td>
-  </tr>
-</table>
-</div>
-</div>
-</div>
-<div class="minerals__random">
-<a class="minerals__anchor" href="#">Show random mineral</a>
-</div>
+<style media="screen">
+
+  .detail_container {
+    float: right;
+    margin-left: 30px;
+    position: relative;
+    margin-top: -700px;
+  }
+  .text_display {
+    text-align: center;
+  }
+  .image {
+    width: 50%;
+  }
+  .background_image{
+    .background: #ecfaf8;
+  }
+</style>
+ <div class='container detail_container'>
+  <h1 class="text_display">{{mineral.name}}</h1>
+  </a>
+  <p class="text_display">They're not rocks!</p>
+  <div class="mineral__image-bg">
+  <img class="mineral__image" src="{% static 'minerals8/images/' %}{{mineral.name}}.jpg" alt="mineral image">
+  <p class="mineral__caption text_display">{{mineral.image_caption}}</p>
+  <table class=>
+    <tr>
+      <td class="mineral__category">Category</td>
+      <td>{{mineral.category}}</td>
+    </tr>
+    <tr>
+      <td class="mineral__category">Mohs Scale Hardness</td>
+      <td class="mineral__formula">{{mineral.mohs_scale_hardness}}</td>
+    </tr>
+    <tr>
+      <td class="mineral__category">Strunz Classification</td>
+      <td>{{mineral.strunz_classification}}</td>
+    </tr>
+    <tr>
+      <td class="mineral__category">Unit Cell</td>
+      <td>{{mineral.unit_cell}}</td>
+    </tr>
+    <tr>
+      <td class="mineral__category">Color</td>
+      <td>Blue to blue-green</td>
+    </tr>
+    <tr>
+      <td class="mineral__category">Crystal Habit</td>
+      <td>fibrous</td>
+    </tr>
+    <tr>
+      <td class="mineral__category">Cleavage</td>
+      <td>{{mineral.cleavage}}</td>
+    </tr>
+    <tr>
+      <td class="mineral__category">Luster</td>
+      <td>{{mineral.luster}}</td>
+    </tr>
+    <tr>
+      <td class="mineral__category">Crystal system</td>
+      <td>{{mineral.crystal_symmetry}}</td>
+    </tr>
+    <tr>
+      <td class="mineral__category">Streak</td>
+      <td>{{mineral.streak}}</td>
+    </tr>
+    <tr>
+      <td class="mineral__category">Diaphaneity</td>
+      <td>{{mineral.diaphaneity}}</td>
+    </tr>
+    <tr>
+      <td class="mineral__category">Optical properties</td>
+      <td>{{mineral.optical_properties}}</td>
+    </tr>
+    <tr>
+      <td class="mineral__category">Refractive index</td>
+      <td>{{mineral.refractive_index}}</td>
+    </tr>
+    <tr>
+      <td class="mineral__category">specific gravity</td>
+      <td>{{mineral.specific_gravity}}</td>
+    </tr>
+    <tr>
+      <td class="mineral__category">Group</td>
+      <td>{{mineral.group}}</td>
+    </tr>
+    <tr>
+      <td class="mineral__category">Formula</td>
+      <td>{{mineral.formula}}</td>
+    </tr>
+
+  </table>
+ </div>
 {% endblock %}

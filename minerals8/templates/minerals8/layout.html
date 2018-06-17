@@ -24,7 +24,29 @@
     }
     .filter {
       font-size: 1.2em;
-      font-color: black;
+      color: blue;
+      font-weight: bold;
+    }
+    .horizontal {
+      background:  black;
+      border-color: black;
+    }
+    .fixing_list {
+      list-style-type: none;
+    }
+    .list_size {
+      font-size: 1.4em;
+    }
+    .filter {
+      font-size: 1.8em;
+      font-family: "Work Sans", sans-serif;
+      color: #384033;
+      padding-top: 10px;
+
+    }
+    .bold {
+      font-weight: bolder;
+      color: black;
     }
   </style>
 
@@ -48,34 +70,104 @@
   <section class="top-bar-right">
     <form action="{% url 'search' %}" method="GET">
       <ul class="menu">
-        <li><input type="search" name="q"></li>
-        <li><button type="button" class="secondary small button">Search</button></li>
+        <li class='fixing_list'><input type="search" name="q"></li>
+        <li class='fixing_list'><input type="submit" class="secondary small button" value="Search"></li>
       </ul>
     </form>
   </section>
  </div>
        {% for letter in alphabet %}
            {% ifchanged letter.name.0 %}
-            <!-- <div class='alpha_align'> -->
-            <span class='alpha_align'><a  href="{% url 'alphabet' letter=letter.name.0 %}">{{letter.name.0}}</a></span>
-           <!-- </div> -->
+            <span class='alpha_align'><a  href="{% url 'alphabet' letter=letter.name.0 %}">
+               {% if letter.name.0 == alpha_mineral %}
+                  <strong class="bold">{{letter.name.0}}</a></span>
+               {% else %}
+                 {{letter.name.0}}</a></span>
+              {% endif %}
           {% endifchanged%}
        {% endfor %}
-       <ul class='group'>
-            <span class='filter'> Filter by Mineral Group</span>
-            <li></li><a href="{% url 'categories' group='Oxides' %}">Oxides</a></li>
-            <li></li><a href="{% url 'categories' group='Sulfates'%}">Sulfates</a></li>
-            <li></li><a href="{% url 'categories' group='Sulfides'%}">Sulfides</a></li>
-            <li></li><a href="{% url 'categories' group='Carbonates'%}">Carbonates</a></li>
-            <li></li><a href="{% url 'categories' group='Halides' %}">Halides</a></li>
-            <li></li><a href="{% url 'categories' group='Sulfosalts'%}">Sulfosalts</a></li>
-            <li></li><a href="{% url 'categories' group='Phosphates'%}">Phosphates</a></li>
-            <li></li><a href="{% url 'categories' group='Borates'%}">Borates</a></li>
-            <li></li><a href="{% url 'categories' group='Arsenates'%}">Arsenates</a></li>
-            <li></li><a href="{% url 'categories' group='Native elements'%}">Native Elements</a></li>
-            <li></li><a href="{% url 'categories' group='Arsenates'%}">Arsenates</a></li>
-            <li></li><a href="{% url 'categories' group='Organic'%}">Organic</a></li>
-            <li></li><a href="{% url 'categories' group='Other'%}">Other</a></li>
+       <ul class='group fixing_list'>
+            <li class="filter">Filter: group</li>
+            <hr>
+            <li class="list_size"><a href="{% url 'categories' group='Oxides' %}">
+              {% if mineral.group == 'Oxides' %}
+                     <strong class="bold">Oxides</strong></a></li>
+              {% else %}
+                     Oxides</a></li>
+              {% endif %}
+
+            <li class="list_size"><a href="{% url 'categories' group='Sulfates'%}">
+              {% if mineral.group == 'Sulfates'  %}
+                     <strong class="bold">Sulfates</strong></a></li>
+              {% else %}
+                     Sulfates</a></li>
+              {% endif %}
+            <li class="list_size"><a href="{% url 'categories' group='Sulfides'%}">
+              {% if mineral.group == 'Sulfides'  %}
+                     <strong class="bold">Sulfides</strong></a></li>
+              {% else %}
+                     Sulfides</a></li>
+              {% endif %}
+            <li class="list_size"><a href="{% url 'categories' group='Carbonates'%}">
+              {% if mineral.group == 'Carbonates'  %}
+                     <strong class="bold">Carbonates</strong></a></li>
+              {% else %}
+                     Carbonates</a></li>
+              {% endif %}
+            <li class="list_size"><a href="{% url 'categories' group='Halides' %}">
+              {% if mineral.group == 'Halides'  %}
+                     <strong class="bold">Halides</strong></a></li>
+              {% else %}
+                     Halides</a></li>
+              {% endif %}
+            <li class="list_size"><a href="{% url 'categories' group='Sulfosalts'%}">
+              {% if mineral.group == 'Sulfosalts'  %}
+                     <strong class="bold">Sulfosalts</strong></a></li>
+              {% else %}
+                     Sulfosalts</a></li>
+              {% endif %}
+            <li class="list_size"><a href="{% url 'categories' group='Phosphates'%}">
+              {% if mineral.group == 'Phosphates'  %}
+                     <strong class="bold">Phosphates</strong></a></li>
+              {% else %}
+                     Phosphates</a></li>
+              {% endif %}
+            <li class="list_size"><a href="{% url 'categories' group='Borates'%}">
+              {% if mineral.group == 'Borates'  %}
+                     <strong class="bold">Borates</strong></a></li>
+              {% else %}
+                     Borates</a></li>
+              {% endif %}
+            <li class="list_size"><a href="{% url 'categories' group='Arsenates'%}">
+              {% if mineral.group == 'Arsenates'  %}
+                     <strong class="bold">Arsenates</strong></a></li>
+              {% else %}
+                     Arsenates</a></li>
+              {% endif %}
+            <li class="list_size"><a href="{% url 'categories' group='Native elements'%}">
+              {% if mineral.group == 'Native Elements'  %}
+                     <strong class="bold">Native Elements</strong></a></li>
+              {% else %}
+                     Native Elements</a></li>
+              {% endif %}
+            <li class="list_size"><a href="{% url 'categories' group='Arsenates'%}">
+              {% if mineral.group == 'Arsenates'  %}
+                     <strong class="bold">Arsenates</strong></a></li>
+              {% else %}
+                     Arsenates</a></li>
+              {% endif %}
+            <li class="list_size"><a href="{% url 'categories' group='Organic'%}">
+              {% if mineral.group == 'Organic'  %}
+                     <strong class="bold">Organic</strong></a></li>
+              {% else %}
+                     Organic</a></li>
+              {% endif %}
+            <li class="list_size"><a href="{% url 'categories' group='Other'%}">
+              {% if mineral.group == 'Other'  %}
+                     <strong class="bold">Other</strong></a></li>
+              {% else %}
+                     Other</a></li>
+              {% endif %}
         </ul>
 
 
